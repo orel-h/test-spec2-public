@@ -26,7 +26,6 @@ grains:
     kind: terraform
     spec:
       source:
-        store: autogen_repo_sandbox_24668a70
         path: terraform/simple-tf-module
       host:
         cloud-account: aws
