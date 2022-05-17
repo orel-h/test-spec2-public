@@ -26,7 +26,7 @@ grains:
     kind: terraform
     spec:
       source:
-        path: https://github.com/orel-h/test-spec2-public/terraform/simple-tf-module
+        path: terraform/simple-tf-module
       host:
         cloud-account: aws
         compute-service: eks
