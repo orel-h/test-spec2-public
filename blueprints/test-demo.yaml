@@ -22,30 +22,30 @@ outputs:
     value: '{{.grains.helloTF.outputs.output1}}'
 
 grains:
-#   helloTF:
-#     kind: terraform
-#     spec:
-#       source:
-#         path: terraform/simple-tf-module
-#       host:
-#         cloud-account: aws
-#         compute-service: eks
-#       inputs:
-#         - test_input1: env-input-{{.inputs.input1}}
-#         - test_input2: env-id-{{sandboxId}}
-#       ouputs:
-#         - output1
-#         - output2
-
-  helloHelm:
-    kind: helm
+  helloTF:
+    kind: terraform
     spec:
       source:
-        path: https://github.com/bitnami/charts.git//bitnami/node
+        path: terraform/simple-tf-module
       host:
         cloud-account: aws
         compute-service: eks
-      commands:
-        - "dep up bitnami/node"
       inputs:
-        - nameOverride: '{{.grains.helloTF.outputs.output1}}'
+        - test_input1: env-input-{{.inputs.input1}}
+        - test_input2: env-id-{{sandboxId}}
+      ouputs:
+        - output1
+        - output2
+
+#   helloHelm:
+#     kind: helm
+#     spec:
+#       source:
+#         path: https://github.com/bitnami/charts.git//bitnami/node
+#       host:
+#         cloud-account: aws
+#         compute-service: eks
+#       commands:
+#         - "dep up bitnami/node"
+#       inputs:
+#         - nameOverride: '{{.grains.helloTF.outputs.output1}}'
