@@ -65,7 +65,7 @@ grains:
         - nameOverride: '{{.inputs.input1}}'
         #- nameOverride: '{{.grains.helloTF.outputs.output1}}'
         
-  helloHelm_:
+  helloHelm2:
     kind: helm
     #depends-on: helloTF
     spec:
