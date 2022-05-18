@@ -72,7 +72,7 @@ grains:
       source:
         path: https://github.com/bitnami/charts.git//bitnami/node
       host:
-        Name: eks-test
+        name: eks-test
       commands:
         - "dep up bitnami/node"
 
