@@ -64,6 +64,21 @@ grains:
       inputs:
         - nameOverride: '{{.inputs.input1}}'
         #- nameOverride: '{{.grains.helloTF.outputs.output1}}'
+        
+  helloHelm_:
+    kind: helm
+    #depends-on: helloTF
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/node
+      host:
+        Name: eks
+      commands:
+        - "dep up bitnami/node"
+
+      inputs:
+        - nameOverride: '{{.inputs.input1}}'
+        #- nameOverride: '{{.grains.helloTF.outputs.output1}}'
   
   # helloHelm2:
   #   kind: helm
