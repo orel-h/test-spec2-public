@@ -20,6 +20,8 @@ outputs:
     value: '{{.inputs.input1}}'
   output3:
     value: '{{.grains.helloTF.outputs.output1}}'
+  output4:
+    value: '{{.grains.helloTF.outputs.output2}}'
     
 grains:
   helloTF:
