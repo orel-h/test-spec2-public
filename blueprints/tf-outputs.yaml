@@ -22,7 +22,11 @@ outputs:
     value: '{{.grains.helloTF.outputs.output1}}'
   output4:
     value: '{{.grains.helloTF.outputs.output2}}'
-    
+  output5: 
+    value: '{{ sandboxid }}.{{ output1 }}'
+  output6: 
+    value: '{{ .grains.helloTF.outputs.output1 }}.{{ .grains.helloTF.outputs.output2 }}'
+
 grains:
   helloTF:
     kind: terraform
