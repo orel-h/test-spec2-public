@@ -23,9 +23,6 @@ outputs:
   output3:
     kind: regular
     value: '{{.grains.helloTF.outputs.output2}}'
-  output4:
-    kind: regular
-    value: $"https://{.grains.helloTF.outputs.output1}/dashboard/"
 
 grains:
   helloTF:
