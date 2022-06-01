@@ -23,6 +23,9 @@ outputs:
   output3:
     kind: link
     value: https://{.grains.helloTF.outputs.output1}/dashboard/
+  output4:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output1}}.{{.grains.helloTF.outputs.output2}}'
 
 grains:
   helloTF:
