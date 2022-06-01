@@ -20,9 +20,6 @@ outputs:
   output2:
     kind: hyperlink
     value: '{.grains.helloTF.outputs.output1}'
-  output3:
-    kind: regular
-    value: '{{.grains.helloTF.outputs.output2}}'
 
 grains:
   helloTF:
