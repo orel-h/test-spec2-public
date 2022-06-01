@@ -4,6 +4,6 @@ terraform {
 
 
 locals {
-  key1 = "https://www.google.com"
+  key1 = "www.google.com"
   key2 = "Hello World"
 }
