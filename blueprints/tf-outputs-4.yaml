@@ -17,11 +17,15 @@ outputs:
   output1:
     kind: hyperlink
     value: '{{.grains.helloTF.outputs.output1}}'
-    description: "description_link"
   output2:
+    kind: hyperlink
+    value: '{.grains.helloTF.outputs.output1}'
+  output3:
     kind: regular
     value: '{{.grains.helloTF.outputs.output2}}'
-    description: "description_link"
+  output4:
+    kind: regular
+    value: 'https://{.grains.helloTF.outputs.output1}/dashboard/'
 
 grains:
   helloTF:
