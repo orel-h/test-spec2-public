@@ -19,9 +19,9 @@ outputs:
     value: '{{.grains.helloTF.outputs.output1}}'
   output2:
     kind: regular
-    value: {{.grains.helloTF.outputs.output2}}
+    value: '{{.grains.helloTF.outputs.output2}}'
   output3:
-    kind: regular
+    kind: link
     value: https://{.grains.helloTF.outputs.output1}/dashboard/
 
 grains:
