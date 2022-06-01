@@ -15,7 +15,7 @@ inputs:
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
   output1:
-    kind: hyperlink
+    kind: link
     value: '{{.grains.helloTF.outputs.output1}}'
   output2:
     kind: regular
