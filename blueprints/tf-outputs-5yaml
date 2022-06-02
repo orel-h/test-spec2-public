@@ -39,7 +39,6 @@ grains:
         path: github.com/orel-h/test-spec2-public.git//terraform/simple-tf-outputs
       host:
         compute-service: eks
-        service-account: '{{.inputs.service_account}}'
       inputs:
         - test_input1: env-input-{{.inputs.input1}}
         - test_input2: env-id-{{sandboxId}}
