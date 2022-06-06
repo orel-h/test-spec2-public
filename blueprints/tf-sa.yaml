@@ -1,0 +1,47 @@
+spec_version: 2-preview
+description: description text
+
+inputs:
+  input1:
+    type: string
+    display-style: normal
+    default: "default1"
+    description: "environemnt input 1"
+  input2:
+    type: string
+    display-style: normal
+    description: "environemnt input 2"    
+  compute_service_name:
+    type: string
+    default: "eks"
+    display-style: normal
+  service_account:
+    type: string
+    default: "default"
+    display-style: normal
+
+# values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
+outputs:
+  output1:
+    kind: link
+    value: '{{.grains.helloTF.outputs.output1}}'
+  output2:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output2}}'
+
+grains:
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: github.com/orel-h/test-spec2-public.git//terraform/simple-tf-outputs
+      host:
+        compute-service: '{{.inputs.compute_service_name}}'
+        service-account: '{{.inputs.service_account}}'
+      inputs:
+        - test_input1: env-input-{{.inputs.input1}}
+        - test_input2: env-id-{{sandboxId}}
+      ouputs:
+        - output1
+        - output2
+
