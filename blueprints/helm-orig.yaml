@@ -28,7 +28,7 @@ grains:
       inputs:
         - replicaCount: '{{ .inputs.replicaCount }}'
       outputs:
-        - test1: 'aaa'
-        - test2: 'bbb'
+        - test1: '{{ .inputs.replicaCount }}'
+        - test2: '{{ .inputs.replicaCount }}'
       commands:
         - dep up bitnami/nginx
