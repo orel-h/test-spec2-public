@@ -1,0 +1,34 @@
+spec_version: 2-preview
+description: Blueprint for bitnami nginx helm chart 
+
+inputs:
+  input1:
+    type: number
+    display-style: normal
+    default: 1
+    description: "Number of NGINX replicas to deploy"
+
+outputs:
+  output1:
+    kind: link
+    value: '{{.grains.nginx.outputs.test1}}'
+  output2:
+    kind: regular
+    value: '{{.grains.nginx.outputs.test2}}'
+
+grains:
+  nginx:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        cloud-account: aws-demo
+        compute-service: eks-demo
+      inputs:
+        - replicaCount: '{{ .inputs.replicaCount }}'
+      outputs:
+        - test1: 'https://{{sandboxid}}/dashboard/'
+        - test2: 'https://{{.inputs.input1}}/dashboard/'
+      commands:
+        - dep up bitnami/nginx
