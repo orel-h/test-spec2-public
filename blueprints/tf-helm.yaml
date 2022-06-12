@@ -11,6 +11,10 @@ inputs:
     type: string
     display-style: normal
     description: "environemnt input 2"    
+  serviceAccount:
+    type: string
+    display-style: normal
+    description: "default"    
 
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
@@ -26,6 +30,10 @@ outputs:
     value: '{{ sandboxid }}.{{ .grains.helloTF.outputs.output1  }}'
   output6: 
     value: '{{ .grains.helloTF.outputs.output1 }}.{{ .grains.helloTF.outputs.output2 }}'
+  output7: 
+    value: '{{.grains.helloTF.outputs.output_helm_1}}'
+  output8: 
+    value: '{{.grains.helloTF.outputs.output_helm_2}}'
 
 grains:
   helloTF:
@@ -49,6 +57,11 @@ grains:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       host:
         name: eks
+        service-account: '{{ .inputs.serviceAccount }}'
       inputs:
         - test_input1: env-input-{{.inputs.input1}}
         - test_input2: env-id-{{sandboxId}}
+      outputs: 
+        - output_helm_1 : 'test-1'
+        - output_helm_2 : 'test-2'
+
