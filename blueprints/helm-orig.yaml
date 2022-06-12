@@ -8,6 +8,11 @@ inputs:
     default: 1
     description: "Number of NGINX replicas to deploy"
 
+outputs:
+  outputA:
+    kind: regular
+    value: '{{.grains.nginx.outputs.testOutputA}}'
+
 grains:
   nginx:
     kind: helm
@@ -19,5 +24,7 @@ grains:
         service-account: torque-sidecar-sa-19805c
       inputs:
         - replicaCount: '{{ .inputs.replicaCount }}'
+      outputs:
+        - testOutputA: '{{ .inputs.replicaCount }}'
       commands:
         - dep up bitnami/nginx
