@@ -10,7 +10,8 @@ inputs:
   input2:
     type: string
     display-style: normal
-    description: "environemnt input 2" 
+    default: "default2"
+    description: "environemnt input 2"     
 
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
@@ -53,5 +54,5 @@ grains:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       host:
         name: eks
-        
+        service-account: torque-sidecar-sa-19805c
 
