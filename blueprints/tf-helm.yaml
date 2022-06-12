@@ -42,3 +42,14 @@ grains:
         - output1
         - output2
 
+  nginx:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        name: eks
+      inputs:
+        - test_input1: env-input-{{.inputs.input1}}
+        - test_input2: env-id-{{sandboxId}}
+        
