@@ -51,7 +51,7 @@ grains:
     kind: helm
     spec:
       source:
-        path: https://github.com/bitnami/charts.git//bitnami/nginx
+        path: https://github.com/QualiNext/test-spec2-public.git//helm/nginx
       host:
         name: eks
         service-account: torque-sidecar-sa-19805c
