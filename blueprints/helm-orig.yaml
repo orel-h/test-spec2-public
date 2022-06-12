@@ -8,6 +8,11 @@ inputs:
     default: 1
     description: "Number of NGINX replicas to deploy"
 
+outputs:
+  outputA:
+    kind: regular
+    value: '{{.grains.nginx.outputs.testOutputA}}'
+
 grains:
   nginx:
     kind: helm
