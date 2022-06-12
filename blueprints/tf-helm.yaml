@@ -11,10 +11,10 @@ inputs:
     type: string
     display-style: normal
     description: "environemnt input 2"    
-  serviceAccount:
+  input3:
     type: string
     display-style: normal
-    description: "default"    
+    description: "service account"    
 
 # values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
 outputs:
