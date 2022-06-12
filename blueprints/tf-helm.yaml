@@ -57,7 +57,6 @@ grains:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       host:
         name: eks
-        service-account: '{{ .inputs.serviceAccount }}'
       inputs:
         - test_input1: env-input-{{.inputs.input1}}
         - test_input2: env-id-{{sandboxId}}
