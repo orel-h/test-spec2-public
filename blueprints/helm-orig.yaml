@@ -19,5 +19,7 @@ grains:
         service-account: torque-sidecar-sa-19805c
       inputs:
         - replicaCount: '{{ .inputs.replicaCount }}'
+      outputs:
+        - output1: aaa
       commands:
         - dep up bitnami/nginx
