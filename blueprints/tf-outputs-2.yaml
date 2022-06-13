@@ -38,7 +38,7 @@ grains:
       inputs:
         - test_input1: env-input-{{.inputs.input1}}
         - test_input2: env-id-{{sandboxId}}
-      ouputs:
+      outputs:
         - output1
         - output2
 
