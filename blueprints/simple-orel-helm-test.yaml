@@ -24,4 +24,4 @@ grains:
       scripts:
         post-helm-install:
           source:  
-            path: github.com/QualiNext/test-spec2-public.git//scripts/orel_helm_script.sh
+            path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script.sh
