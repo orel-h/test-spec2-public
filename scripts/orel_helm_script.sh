@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "test1"
-#mkdir /orel
-echo "test2"
+echo "test env variables"
+
+export TEST_1=test_1
+export TEST_2=test_2
 
