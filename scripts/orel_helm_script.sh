@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "test env variables"
+echo "test env variables 2"
 
-export TEST_1=test_1
-export TEST_2=test_2
+export test_1=test_1
+echo $test_1
 
+test_2=test_2
+echo test_2
