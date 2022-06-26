@@ -7,3 +7,5 @@ echo $test_1
 
 test_2=test_2
 echo $test_2
+
+echo "hello from script"
