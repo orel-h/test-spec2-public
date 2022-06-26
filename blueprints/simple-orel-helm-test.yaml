@@ -6,7 +6,7 @@ inputs:
     type: number
     display-style: normal
     default: 1
-    description: "Number of NGINX replicas to deploy 6"
+    description: "Number of NGINX replicas to deploy 7"
 
 outputs:
   output1:
@@ -32,7 +32,7 @@ grains:
       scripts:
         post-helm-install:
           source:  
-            path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script.s
+            path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script.sh
       outputs:
         - output1
         - output2
