@@ -1,5 +1,5 @@
 spec_version: 2-preview
-description: description text 3
+description: description text 4
 
 inputs:
   input1:
@@ -25,8 +25,8 @@ outputs:
     kind: regular
     value: '{{.grains.helloTF.outputs.output2}}'
   output3:
-    kind: link
-    value: 'https://{{.grains.helloTF.outputs.output1}}/dashboard/'
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output1}}.{{.grains.helloTF.outputs.output2}}'
 
 grains:
   helloTF:
