@@ -3,9 +3,9 @@
 echo "test env variables"
 
 output1=aa
-echo $test_1
+echo $output1
 
 output2=bb
-echo $test_2
+echo $output2
 
 echo "hello from script"
