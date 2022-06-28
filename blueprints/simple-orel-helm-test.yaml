@@ -6,7 +6,7 @@ inputs:
     type: number
     display-style: normal
     default: 1
-    description: "Number of NGINX replicas to deploy 8"
+    description: "Number of NGINX replicas to deploy 10"
 
 outputs:
   output1:
@@ -15,6 +15,9 @@ outputs:
   output2:
     kind: regular
     value: '{{.grains.nginx.outputs.output2}}'
+  output3:
+    kind: regular
+    value: 'https://{{.grains.nginx.outputs.output1}}.{{.grains.nginx.outputs.output2}}/dashboard/'
 
 grains:
   nginx:
