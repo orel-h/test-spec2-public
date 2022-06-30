@@ -17,7 +17,7 @@ outputs:
     value: '{{.grains.nginx.outputs.test2}}'
   output3:
     kind: regular
-    value: 'https://{{.grains.nginx.outputs.output1}}.{{.grains.nginx.outputs.output2}}/dashboard/'
+    value: 'https://{{.grains.nginx.outputs.test1}}.{{.grains.nginx.outputs.test2}}/dashboard/'
 
 grains:
   nginx:
