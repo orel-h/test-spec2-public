@@ -2,10 +2,10 @@
 
 echo "test env variables"
 
-output1=aa
-echo $output1
+test1=aa
+echo $test1
 
-output2=bb
-echo $output2
+test2=bb
+echo $test2
 
 echo "hello from script"
