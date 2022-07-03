@@ -6,7 +6,7 @@ inputs:
     type: number
     display-style: normal
     default: 1
-    description: "Number of NGINX replicas to deploy 16"
+    description: "Number of NGINX replicas to deploy 17"
 
 outputs:
   output1:
@@ -18,12 +18,6 @@ outputs:
   output3:
     kind: regular
     value: 'https://{{.grains.nginx.scripts.post-helm-install.outputs.test1}}.{{.grains.nginx.scripts.post-helm-install.outputs.test2}}/dashboard/'
-  output4:
-    kind: regular
-    value: '{{.grains.nginx.outputs.test1}}'
-  output5:
-    kind: regular
-    value: '{{.grains.nginx.outputs.test2}}'
 
 grains:
   nginx:
@@ -46,5 +40,5 @@ grains:
             - test1
             - test2
       outputs:
-        - test1
-        - test2
+        - test3
+        - test4
