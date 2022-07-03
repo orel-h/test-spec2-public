@@ -6,7 +6,7 @@ inputs:
     type: number
     display-style: normal
     default: 1
-    description: "Number of NGINX replicas to deploy 17"
+    description: "Number of NGINX replicas to deploy 18"
 
 outputs:
   output1:
@@ -39,6 +39,4 @@ grains:
           outputs:
             - test1
             - test2
-      outputs:
-        - test3
-        - test4
+
