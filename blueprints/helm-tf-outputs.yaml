@@ -1,0 +1,62 @@
+spec_version: 2-preview
+description: Blueprint for bitnami nginx helm chart 
+
+inputs:
+  replicaCount:
+    type: number
+    display-style: normal
+    default: 1
+    description: "Number of NGINX replicas to deploy 18"
+
+outputs:
+  output1:
+    kind: regular
+    value: '{{.grains.nginx.scripts.post-helm-install.outputs.test1}}'
+  output2:
+    kind: regular
+    value: '{{.grains.nginx.scripts.post-helm-install.outputs.test2}}'
+  output3:
+    kind: regular
+    value: 'https://{{.grains.nginx.scripts.post-helm-install.outputs.test1}}.{{.grains.nginx.scripts.post-helm-install.outputs.test2}}/dashboard/'
+  output4:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output1}}'
+  output5:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output2}}'
+
+grains:
+  nginx:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        name: eks
+        service-account: torque-sidecar-sa-19805c
+      inputs:
+        - replicaCount: '{{ .inputs.replicaCount }}'
+      commands:
+        - dep up bitnami/nginx
+      scripts:
+        post-helm-install:
+          source:  
+            path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script.sh
+          outputs:
+            - test1
+            - test2
+
+grains:
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: github.com/orel-h/test-spec2-public.git//terraform/simple-tf-outputs
+      host:
+        compute-service: eks
+      inputs:
+        - test_input1: env-input-{{.inputs.input1}}
+        - test_input2: env-id-{{sandboxId}}
+      outputs:
+        - output1
+        - output2
