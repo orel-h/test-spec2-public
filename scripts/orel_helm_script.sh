@@ -2,10 +2,6 @@
 
 echo "test env variables"
 
-
-echo $1
-echo $2
-
 test1=aa
 echo $test1
 
