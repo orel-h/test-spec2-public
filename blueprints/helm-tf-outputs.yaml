@@ -47,6 +47,7 @@ grains:
         post-helm-install:
           source:  
             path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script.sh
+          arguments: p1 p2
           outputs:
             - test1
             - test2
