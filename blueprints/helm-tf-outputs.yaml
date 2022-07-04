@@ -7,6 +7,11 @@ inputs:
     display-style: normal
     default: 1
     description: "Number of NGINX replicas to deploy 20"
+  input1:
+    type: string
+    display-style: normal
+    default: "default1"
+    description: "environemnt input 1"
 
 outputs:
   output1:
