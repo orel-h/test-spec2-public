@@ -46,7 +46,6 @@ grains:
             - test1
             - test2
 
-grains:
   helloTF:
     kind: terraform
     spec:
