@@ -1,0 +1,50 @@
+spec_version: 2-preview
+description: Blueprint for bitnami nginx helm chart 
+
+inputs:
+  replicaCount:
+    type: number
+    display-style: normal
+    default: 1
+    description: "Number of NGINX replicas to deploy 21"
+  input1:
+    type: string
+    display-style: normal
+    default: "default1"
+    description: "environemnt input 1"
+
+outputs:
+  output1:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output1}}'
+  output2:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output2}}'
+
+grains:
+  nginx:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        name: eks
+        service-account: torque-sidecar-sa-19805c
+      inputs:
+        - replicaCount: '{{ .inputs.replicaCount }}'
+      commands:
+        - dep up bitnami/nginx
+
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: github.com/orel-h/test-spec2-public.git//terraform/simple-tf-outputs
+      host:
+        compute-service: eks
+      inputs:
+        - test_input1: env-input-{{.inputs.input1}}
+        - test_input2: env-id-{{sandboxId}}
+      outputs:
+        - output1
+        - output2
