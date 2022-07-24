@@ -6,7 +6,7 @@ inputs:
     type: number
     display-style: normal
     default: 1
-    description: "Number of NGINX replicas to deploy"
+    description: "Number of NGINX replicas to deploy xx"
   input1:
     type: string
     display-style: normal
@@ -25,6 +25,6 @@ grains:
       inputs:
         - replicaCount: '{{ .inputs.replicaCount }}'
         - image.debug: true
-        - containerPorts.http: 8080
+        - containerPorts.http: 9092
       commands:
         - dep up bitnami/nginx
