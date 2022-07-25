@@ -1,5 +1,6 @@
 spec_version: 2-preview
 description: Blueprint for bitnami nginx helm chart 
+#comment
 
 inputs:
   replicaCount:
