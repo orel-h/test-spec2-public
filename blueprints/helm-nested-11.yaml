@@ -25,6 +25,6 @@ grains:
       inputs:
         - replicaCount: '{{ .inputs.replicaCount }}'
         - image.debug: true
-        - containerPorts..bb.http: 9092
+        - containerPorts.   .http: 9092
       commands:
         - dep up bitnami/nginx
