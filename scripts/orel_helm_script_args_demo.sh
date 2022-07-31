@@ -9,8 +9,13 @@ IFS=' '
 #Read the split words into an array based on space delimiter
 read -a strarr <<< "$text"
 
-#Count the total words
-echo "There are ${#strarr[*]} words in the text."
+url=${strarr[3]}
+
+while [[ $url == "<pending>" ]]; do
+    text=$(kubectl get svc --namespace $1 | grep nginx)
+    read -a strarr <<< "$text"  
+    url=${strarr[3]}
+done
 
 #Print the nginx URL
 output1=${strarr[3]}
