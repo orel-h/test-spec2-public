@@ -18,6 +18,6 @@ while [[ $url == "<pending>" ]]; do
 done
 
 #Print the nginx URL
-output1=${strarr[3]}
+nginx_url=${strarr[3]}
 echo "service URL"
-echo $output1
+echo $nginx_url

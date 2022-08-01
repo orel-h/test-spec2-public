@@ -3,10 +3,10 @@ description: Blueprint for bitnami nginx helm chart
 
 inputs:
   replicaCount:
-    type: number
+    type: string
     display-style: normal
     default: 1
-    description: "Number of NGINX replicas to deploy 21"
+    description: "Number of NGINX replicas to deploy"
   input1:
     type: string
     display-style: normal

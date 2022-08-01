@@ -3,7 +3,7 @@ description: Blueprint for bitnami nginx helm chart
 
 inputs:
   replicaCount:
-    type: number
+    type: string
     display-style: normal
     default: 1
     description: "Number of NGINX replicas to deploy"
@@ -14,9 +14,9 @@ inputs:
     description: "environemnt input 1"
 
 outputs:
-  output1:
+  url:
     kind: link
-    value: '{{.grains.nginx.scripts.post-helm-install.outputs.output1}}'
+    value: '{{.grains.nginx.scripts.post-helm-install.outputs.nginx_url}}'
 
 grains:
   nginx:
@@ -36,6 +36,6 @@ grains:
             path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script_args_demo.sh
           arguments: orel-sandboxes
           outputs:
-            - output1
+            - nginx_url
 
           
