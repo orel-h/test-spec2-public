@@ -16,7 +16,7 @@ inputs:
 outputs:
   url:
     kind: link
-    value: '{{.grains.nginx.scripts.post-helm-install.outputs.nginx_url}}'
+    value: '{{.grains.nginx.scripts.post-helm-install.outputs.url}}'
 
 grains:
   nginx:
@@ -36,6 +36,6 @@ grains:
             path: github.com/orel-h/test-spec2-public.git//scripts/orel_helm_script_args_demo.sh
           arguments: orel-sandboxes
           outputs:
-            - nginx_url
+            - url
 
           
