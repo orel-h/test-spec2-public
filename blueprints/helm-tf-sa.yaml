@@ -29,9 +29,9 @@ grains:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       host:
         name: eks
-        service-account: '{{ .inputs.replicaCount }}'
+        service-account: '{{ .inputs.serviceAccount }}'
       inputs:
-        - replicaCount: '{{ .inputs.serviceAccount }}'
+        - replicaCount: '{{ .inputs.replicaCount }}'
       commands:
         - dep up bitnami/nginx
 
