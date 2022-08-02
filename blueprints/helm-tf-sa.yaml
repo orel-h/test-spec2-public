@@ -7,11 +7,16 @@ inputs:
     display-style: normal
     default: 1
     description: "Number of NGINX replicas to deploy"
-  serviceAccount:
+  serviceAccountHelm:
     type: string
     display-style: normal
     default: "default"
-    description: "service account"
+    description: "service account for helm"
+  serviceAccountTf:
+    type: string
+    display-style: normal
+    default: "default"
+    description: "service account for TF"
 
 outputs:
   output1:
@@ -29,7 +34,7 @@ grains:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       host:
         name: eks
-        service-account: '{{ .inputs.serviceAccount }}'
+        service-account: '{{ .inputs.serviceAccountHelm }}'
       inputs:
         - replicaCount: '{{ .inputs.replicaCount }}'
       commands:
@@ -42,7 +47,7 @@ grains:
         path: github.com/orel-h/test-spec2-public.git//terraform/simple-tf-outputs
       host:
         name: eks
-        service-account: '{{ .inputs.serviceAccount }}'
+        service-account: '{{ .inputs.serviceAccountTf }}'
       outputs:
         - output1
         - output2
