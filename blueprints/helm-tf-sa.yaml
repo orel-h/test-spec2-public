@@ -1,0 +1,48 @@
+spec_version: 2-preview
+description: Blueprint for bitnami nginx helm chart 
+
+inputs:
+  replicaCount:
+    type: string
+    display-style: normal
+    default: 1
+    description: "Number of NGINX replicas to deploy"
+  serviceAccount:
+    type: string
+    display-style: normal
+    default: "default"
+    description: "service account"
+
+outputs:
+  output1:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output1}}'
+  output2:
+    kind: regular
+    value: '{{.grains.helloTF.outputs.output2}}'
+
+grains:
+  nginx:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        name: eks
+        service-account: '{{ .inputs.replicaCount }}'
+      inputs:
+        - replicaCount: '{{ .inputs.serviceAccount }}'
+      commands:
+        - dep up bitnami/nginx
+
+  helloTF:
+    kind: terraform
+    spec:
+      source:
+        path: github.com/orel-h/test-spec2-public.git//terraform/simple-tf-outputs
+      host:
+        name: eks
+        service-account: '{{ .inputs.serviceAccount }}'
+      outputs:
+        - output1
+        - output2
