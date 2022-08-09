@@ -12,11 +12,6 @@ inputs:
     display-style: normal
     default: "default"
     description: "service account for helm"
-  serviceAccountTf:
-    type: string
-    display-style: normal
-    default: "default"
-    description: "service account for TF"
 
 grains:
   nginx:
